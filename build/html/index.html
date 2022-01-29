@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hw_wwj 程序的介绍文件 &mdash; hw_wwj v1.3.0 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="安装方法" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> hw_wwj
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use.html">使用方法</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">hw_wwj</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>hw_wwj 程序的介绍文件</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hw-wwj">
+<h1>hw_wwj 程序的介绍文件<a class="headerlink" href="#hw-wwj" title="永久链接至标题"></a></h1>
+<p>hw_wwj是一个测试文档，</p>
+<p>里面有hw1(r1, r2)，hw2(r1, r2)，s=hw3(r1, r2)三个函数，功能就是求sin</p>
+<p>测试fortran和python混合编程</p>
+<p>fortran的程序和python的程序分别如下：</p>
+<section id="fortran-hw1">
+<h2>fortran-hw1<a class="headerlink" href="#fortran-hw1" title="永久链接至标题"></a></h2>
+<p>这是一个函数，用来求出r1和r2的和的sin值</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">real</span><span class="o">*</span><span class="mi">8</span><span class="w"> </span><span class="k">function </span><span class="n">hw1</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="o">*</span><span class="mi">8</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="w"></span>
+<span class="c">!f2py intent(in) r1</span>
+<span class="c">!f2py intent(in) r2</span>
+<span class="n">hw1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r2</span><span class="p">)</span><span class="w"></span>
+<span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">hw1</span><span class="w"></span>
+<span class="k">return</span>
+<span class="k">end function </span><span class="n">hw1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="fortran-hw2">
+<h2>fortran-hw2<a class="headerlink" href="#fortran-hw2" title="永久链接至标题"></a></h2>
+<p>这是一个函数，用来求出r1和r2的和的sin值</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">hw2</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="o">*</span><span class="mi">8</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">r2</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="c">!f2py intent(in) r1</span>
+<span class="c">!f2py intent(in) r2</span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r2</span><span class="p">)</span><span class="w"></span>
+<span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello, World!, sin(&#39;</span><span class="p">,</span><span class="n">r1</span><span class="o">+</span><span class="n">r2</span><span class="p">,</span><span class="s1">&#39;)=&#39;</span><span class="p">,</span><span class="n">s</span><span class="w"></span>
+<span class="k">return</span>
+<span class="k">end subroutine </span><span class="n">hw2</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="fortran-hw3">
+<h2>fortran-hw3<a class="headerlink" href="#fortran-hw3" title="永久链接至标题"></a></h2>
+<p>这是一个函数，用来求出r3和r4的和的sin值</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">hw3</span><span class="p">(</span><span class="n">r3</span><span class="p">,</span><span class="w"> </span><span class="n">r4</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+<span class="c">! integer, intent(in) :: r3, r4 这里不能用integer（整型），否则会报错</span>
+<span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">r3</span><span class="p">,</span><span class="n">r4</span><span class="w"></span>
+<span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="c">!f2py intent(in) r3</span>
+<span class="c">!f2py intent(in) r4</span>
+<span class="c">!f2py intent(out) s</span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">r3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r4</span><span class="p">)</span><span class="w"></span>
+<span class="k">return</span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="python-wwjf2p">
+<h2>python-wwjf2p<a class="headerlink" href="#python-wwjf2p" title="永久链接至标题"></a></h2>
+<p>这是一个函数包中，不同的程序互相调用的例子，python调用fortran文件，并且还要能够完美的运行。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hw_wwj.hw_fortran_t</span> <span class="k">as</span> <span class="nn">hw</span>
+<span class="c1">#from hw_wwj import hw_fortran_t as hw</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+        <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="n">b</span><span class="o">=</span><span class="mf">2.0</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;call func hw1&#39;</span><span class="p">)</span>
+        <span class="n">hw</span><span class="o">.</span><span class="n">hw1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;******************&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;call func hw2&#39;</span><span class="p">)</span>
+        <span class="n">hw</span><span class="o">.</span><span class="n">hw2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;******************&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;call func hw3&#39;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">hw</span><span class="o">.</span><span class="n">hw3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use.html">使用方法</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="永久链接至标题"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">模块索引</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">搜索页面</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-right" title="安装方法" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, banshiliuli.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
